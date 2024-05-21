@@ -5,9 +5,9 @@ WITH stg_product_product_source AS (SELECT product.ProductID                    
                                          , product.MakeFlag                             AS make_flag
                                          , product.SizeUnitMeasureCode                  AS size_unit_measure_key
                                          , product.WeightUnitMeasureCode                AS weight_unit_measure_key
-                                         , product.Color                                AS color
+                                         , NULLIF(product.Color, 'NULL')                AS color
                                          , product.Weight                               AS weight
-                                         , product.Size                                 AS `size`
+                                         , NULLIF(product.Size, 'NULL')                 AS `size`
                                          , product.SafetyStockLevel                     AS safety_stock_level
                                          , product.StandardCost                         AS standard_cost
                                          , product.ListPrice                            AS list_price
